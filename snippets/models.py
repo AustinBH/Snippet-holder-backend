@@ -15,6 +15,10 @@ class User(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     username = models.CharField(max_length=100, blank=True, default='')
 
+    # Adding __str__ method for form readability on the API side.
+    def __str__(self):
+        return '{}'.format(self.username)
+
     class Meta:
         ordering = ['created']
 
